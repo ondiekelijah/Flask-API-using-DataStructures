@@ -9,6 +9,21 @@ class LinkedList:
         self.head = None
         self.last_node = None
 
+    def to_list(self):
+        # Check if linked list is empty, if so return an empty array
+        llist = []
+        if self.head is None:
+            return llist
+
+        # traverse thro the linked list
+
+        node = self.head
+        while node:
+            llist.append(node.data)
+            node = node.next_node
+
+        return llist
+
     def print_ll(self):
         ll_string = ""
         node = self.head
@@ -40,3 +55,15 @@ class LinkedList:
 
         self.last_node.next_node = Node(data, None)
         self.last_node = self.last_node.next_node
+
+    def get_user_by_id(self, user_id):
+        node = self.head
+
+        while node:
+            if node.data["id"] is int(user_id):
+                # if a match is found, return the user data(dict)
+                return node.data
+            # if not, keep looking
+            node = node.next_node
+        # user id not found, we return none
+        return None
