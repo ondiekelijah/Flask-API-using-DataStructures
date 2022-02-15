@@ -6,7 +6,7 @@ class Node:
 
 class LinkedList:
     def __init__(self):
-        self.head = (None,)
+        self.head = None
         self.last_node = None
 
     def print_ll(self):
@@ -22,15 +22,21 @@ class LinkedList:
         ll_string += " None"
         print(ll_string)
 
-        # ll = LinkedList()
-        # node4 = Node("data 4", None)
-        # node3 = Node("data 3", node4)
-        # node2 = Node("data 2", node3)
-        # node1 = Node("data 1", node2)
+    def insert_begining(self, data):
+        # if we were to start with an empty linked list( head=None)
+        # we would just create a new node with some data and set next node
+        # of that new node to our head i.e head is nolonger none but the newly created node
+        if self.head is None:
+            self.head = Node(data, None)
+            self.last_node = self.head
 
-        # ll.head = node1
-        # ll.print_ll()
+        new_node = Node(data, self.head)
+        self.head = new_node
 
-        def insert_begining(self, data):
-            new_node = Node(data, self.head)
-            self.head = new_node
+    def insert_end(self, data):
+        # check if linked list is empty
+        if self.head is None:
+            self.insert_begining(data)
+
+        self.last_node.next_node = Node(data, None)
+        self.last_node = self.last_node.next_node
