@@ -1,7 +1,6 @@
 from flask import Flask, jsonify, request
 from flask_sqlalchemy import SQLAlchemy
-import utils
-import config
+import utils, config
 
 
 
@@ -33,7 +32,7 @@ def create_user():
     db.session.add(new_user)
     db.session.commit()
 
-    return jsonify({"message": "user created"}), 201
+    return jsonify({"message": "user created"}), 200
 
 
 @app.route("/users", methods=["GET"])

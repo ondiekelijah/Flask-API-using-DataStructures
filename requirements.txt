@@ -1,10 +1,12 @@
 attrs==21.4.0
 black==22.1.0
+certifi==2021.10.8
+charset-normalizer==2.0.12
 click==8.0.3
-Faker==12.3.3
 Flask==2.0.3
 Flask-SQLAlchemy==2.5.1
 greenlet==1.1.2
+idna==3.3
 iniconfig==1.1.1
 itsdangerous==2.0.1
 Jinja2==3.0.3
@@ -18,8 +20,10 @@ py==1.11.0
 pyparsing==3.0.7
 pytest==7.0.1
 python-dateutil==2.8.2
+requests==2.27.1
 six==1.16.0
 SQLAlchemy==1.4.31
 tomli==2.0.1
 typing-extensions==4.1.1
+urllib3==1.26.8
 Werkzeug==2.0.3
