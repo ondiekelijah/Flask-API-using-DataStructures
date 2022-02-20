@@ -48,7 +48,7 @@ def get_users():
 
     all_users.sort(key=lambda x: x["id"], reverse=True)
 
-    return jsonify(all_users), 200
+    return jsonify(users), 200
 
 
 @app.route("/users/login", methods=["POST"])

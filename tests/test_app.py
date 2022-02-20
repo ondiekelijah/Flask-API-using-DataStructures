@@ -28,6 +28,31 @@ def test_create_user(client):
     assert response.status_code == 201
 
 
+@pytest.mark.parametrize(
+    "id, fname, lname, username, dob",
+    [
+        (456, "James", "Max", "max34", "01/04/2000"),
+        (643, "Francis", "Powell", "pf3", "11/11/1999"),
+        (491, "Julius", "Atito", "Juati", "10/04/2005"),
+    ],
+)
+def test_create_multiple_users(client, id, fname, lname, username, dob):
+
+    response = client.post(
+        "/user",
+        json={
+            "id": id,
+            "fname": fname,
+            "lname": lname,
+            "username": username,
+            "dob": dob,
+        },
+    )
+
+    assert response.headers["Content-Type"] == "application/json"
+    assert response.status_code == 201
+
+
 def test_fetch_users(client):
 
     response = client.get("/users")
