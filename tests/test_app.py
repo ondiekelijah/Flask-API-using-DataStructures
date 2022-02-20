@@ -1,13 +1,13 @@
 import pytest, requests, json
-from main import app
+import main
 import config
 
 
 @pytest.fixture
 def client():
-    app.config.from_object(config.TestingConfig)
-    with app.test_client() as client:
-        with app.app_context():
+    main.app.config.from_object(config.TestingConfig)
+    with main.app.test_client() as client:
+        with main.app.app_context():
             yield client
 
 
